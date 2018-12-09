@@ -1,0 +1,61 @@
+
+
+
+.blueBtn {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: blue; 
+    margin-left: 20px; 
+}
+
+.blueBtn:first-child {
+    margin-left: 0;
+}
+
+#placeWinScoreHere {
+    display: block;
+    background: gray;
+    padding-left: 10px;
+    padding-top: 20px;
+    width: 200px;
+    height: 100px;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    border: black;
+}
+
+.gameName {
+    font-size: 18 px;
+    color: white;
+    width: 200px;
+    background: orange;
+}
+
+.intro {
+    display: block;
+    font-size: 16px;
+    background: yellow;
+    width: 200px;
+    height: 200px;
+    margin-top: 30px;
+}
+
+.winScore {
+    display: block;
+    background-color: green;
+    color: white;
+    font-size: 100px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.gemRow {
+
+    width: 500px;
+    height: 150px;
+    background-color: lightgray;
+
+
+}
