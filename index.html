@@ -20,106 +20,113 @@
 
     <div id="placeWinScoreHere"></div> 
     <div class="gemRow">
-    <div id="heart" class="blueBtn">div1</div>
-    <div id="ruby" class="blueBtn">div2</div>
-    <div id="diamond" class="blueBtn">div3</div>
-    <div id="star" class="blueBtn">div4</div>
+    <div id="heart" class="blueBtn gemName" value = ''>div1</div>
+    <div id="ruby" class="blueBtn gemName" value = ''>div2</div>
+    <div id="diamond" class="blueBtn gemName" value = '3'>div3</div>
+    <div id="star" class="blueBtn gemName" value = ''>div4</div>
     </div>
 
     
     
     <script type="text/javascript">
         // $(document).ready(function () {
+            var crystal = {
+                // value: '',
+                gem: ["heart", "ruby", "diamond", "star"],
+                gemImage : '',
+                }
 
             var counter = 0;
             var totWins = 0;
             var totLoses = 0;
-            var gemArr = ["#heart", "#ruby", "#diamond", "#star"]
+            // var gemArr = ["#heart", "#ruby", "#diamond", "#star"]
 
             var winScore = randomIntFromInterval(19, 120);
+            var gemFirstVal = $("#diamond").attr("value");
+
             console.log({
-                winScore: winScore
+                winScore: winScore,
+                gemFirstVal: gemFirstVal
                  });
 
             $("#placeWinScoreHere").text(winScore);
 
-            // assignValToGems();
-
-            for (i = 0; i < 4; i++) {
-
-                var genNum = randomIntFromInterval(1, 12);
-
-                console.log({
-                genNum: genNum
-                 });
-                var targetDiv = $(gemArr[i]);
-                console.log({
-                    targetDivLength: (targetDiv.length),
-                    targetDiv: (targetDiv)
-                }
-                    );
-
-                targetDiv.attr("data-gemValue", genNum);
-
-            }
-
-            $("#heart").on("click", function () {
-                //get value of gem and add to counter
-                var gemValue = ($(this).attr("data-gemValue"));
-                gemValue = parseInt(gemValue);
-                // var divText = $("<div>");
-                //     divText.text("55");
-                // $("#heart").text(divText);
-                // We then add the crystalValue to the user's "counter" which is a global variable.
-                // Every click, from every crystal adds to the global counter.
-                counter += gemValue;
-                console.log({
-                gemValue: gemValue,
-                counter: counter
-                 });
-
-            })
-            $("#ruby").on("click", function () {
-                //get value of gem and add to counter
-                var gemValue = ($(this).attr("data-gemValue"));
-                gemValue = parseInt(gemValue);
-                // We then add the crystalValue to the user's "counter" which is a global variable.
-                // Every click, from every crystal adds to the global counter.
-                counter += gemValue;
-                console.log({
-                gemValue: gemValue,
-                counter: counter
-                 });
-
-            })   
+            // assign value to Gems();
+            // for (var x=0; x < ((crystal.gem).length); x++) {
+            //     currentGemVal = $(crystal.gem[x]).attr("value");
+            //     console.log({
+            //         currentGemVal: currentGemVal                    
+            //     })
+            // }
+            assignGemValue(crystal);
+                 
+            // listen for Crystal click, once clicked calculate total
+            $(".number").on("click", function() {
+                counter = counter + 5;
+                // parseInt(crystal.value)
+            });
             
-            $("#diamond").on("click", function () {
-                //get value of gem and add to counter
-                var gemValue = ($(this).attr("data-gemValue"));
-                gemValue = parseInt(gemValue);
-                // We then add the crystalValue to the user's "counter" which is a global variable.
-                // Every click, from every crystal adds to the global counter.
-                counter += gemValue;
-                console.log({
-                gemValue: gemValue,
-                counter: counter
-                 });
+                console.log ({
+                       counter: counter 
+                });   
 
-            })  
+            // $("#heart").on("click", function () {
+            //     //get value of gem and add to counter
+            //     var gemValue = ($(this).attr("data-gemValue"));
+            //     gemValue = parseInt(gemValue);
+            //     // var divText = $("<div>");
+            //     //     divText.text("55");
+            //     // $("#heart").text(divText);
+            //     // We then add the crystalValue to the user's "counter" which is a global variable.
+            //     // Every click, from every crystal adds to the global counter.
+            //     counter += gemValue;
+            //     console.log({
+            //     gemValue: gemValue,
+            //     counter: counter
+                //  });
+
+            // })
+            // $("#ruby").on("click", function () {
+            //     //get value of gem and add to counter
+            //     var gemValue = ($(this).attr("data-gemValue"));
+            //     gemValue = parseInt(gemValue);
+            //     // We then add the crystalValue to the user's "counter" which is a global variable.
+            //     // Every click, from every crystal adds to the global counter.
+            //     counter += gemValue;
+            //     console.log({
+            //     gemValue: gemValue,
+            //     counter: counter
+            //      });
+
+            // })   
             
-            $("#star").on("click", function () {
-                //get value of gem and add to counter
-                var gemValue = ($(this).attr("data-gemValue"));
-                gemValue = parseInt(gemValue);
-                // We then add the crystalValue to the user's "counter" which is a global variable.
-                // Every click, from every crystal adds to the global counter.
-                counter += gemValue;
-                console.log({
-                gemValue: gemValue,
-                counter: counter
-                 });
+            // $("#diamond").on("click", function () {
+            //     //get value of gem and add to counter
+            //     var gemValue = ($(this).attr("data-gemValue"));
+            //     gemValue = parseInt(gemValue);
+            //     // We then add the crystalValue to the user's "counter" which is a global variable.
+            //     // Every click, from every crystal adds to the global counter.
+            //     counter += gemValue;
+            //     console.log({
+            //     gemValue: gemValue,
+            //     counter: counter
+            //      });
 
-            })
+            // })  
+            
+            // $("#star").on("click", function () {
+            //     //get value of gem and add to counter
+            //     var gemValue = ($(this).attr("data-gemValue"));
+            //     gemValue = parseInt(gemValue);
+            //     // We then add the crystalValue to the user's "counter" which is a global variable.
+            //     // Every click, from every crystal adds to the global counter.
+            //     counter += gemValue;
+            //     console.log({
+            //     gemValue: gemValue,
+            //     counter: counter
+            //      });
+
+            // })
 
             // var targetDiv = $("blueBtn").create("<div>");
 
