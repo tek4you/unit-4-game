@@ -1,24 +1,24 @@
 
 
 
-.blueBtn {
+.crystal-image {
     display: inline-block;
     width: 100px;
     height: 100px;
-    background-color: blue; 
+    background-color: white; 
     margin-left: 20px; 
 }
 
-.blueBtn:first-child {
+.crystal-image:first-child {
     margin-left: 0;
 }
 
 #placeWinScoreHere {
-    display: block;
-    background: gray;
+    display: inline-block;
+    background: green;
     padding-left: 10px;
     padding-top: 20px;
-    width: 200px;
+    width: 100px;
     height: 100px;
     font-size: 40px;
     font-weight: bold;
@@ -29,7 +29,7 @@
 .gameName {
     font-size: 18 px;
     color: white;
-    width: 200px;
+    width: 270px;
     background: orange;
 }
 
@@ -37,16 +37,42 @@
     display: block;
     font-size: 16px;
     background: yellow;
-    width: 200px;
-    height: 200px;
-    margin-top: 30px;
+    width: 400px;
+    height: 300px;
+    margin-top: 10px;
 }
 
 .winScore {
-    display: block;
+    display: inline-block;
     background-color: green;
     color: white;
     font-size: 100px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.totals {
+    display: inline-block;
+    background-color: green;
+    color: white;
+    font-size: 25px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+#total-loses {
+    display: inline-block;
+    background-color: green;
+    color: white;
+    font-size: 25px;
+    width: 200px;
+    margin-top: 10px;
+}
+#total-wins {
+    display: inline-block;;
+    background-color: green;
+    color: white;
+    font-size: 25px;
     width: 200px;
     margin-top: 10px;
 }
@@ -55,7 +81,25 @@
 
     width: 500px;
     height: 150px;
-    background-color: lightgray;
+    background-color: white;
+}
+
+.score-display {
+    display: block;
+    background-color: green;
+    color: white;
+    font-size: 100px;
+    width: 240px;
+    margin-top: 10px;
+}
+
+.total-score {
+    display: block;
+    background-color: green;
+    color: white;
+    font-size: 30px;
+    width: 240px;
+    margin-top: 10px;
 
 
 }

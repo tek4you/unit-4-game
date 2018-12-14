@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <title>Button Random</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-  <script src="/assets/javascript/game.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="assets/javascript/game.js"></script>
 </head>
 <body>
 
-    <h1>Click the Blue Button to Generate a Number.</h1>
     <div>
         <h1 class="gameName">Crystal Collector</h1>
     </div>
@@ -18,129 +17,102 @@
         </h3>
     </div>
 
-    <div id="placeWinScoreHere"></div> 
-    <div class="gemRow">
-    <div id="heart" class="blueBtn gemName" value = ''>div1</div>
-    <div id="ruby" class="blueBtn gemName" value = ''>div2</div>
-    <div id="diamond" class="blueBtn gemName" value = '3'>div3</div>
-    <div id="star" class="blueBtn gemName" value = ''>div4</div>
-    </div>
+    <div id="placeWinScoreHere"> </div> 
+        <div class="totals"><p id="total-wins">Total Wins:</p>
+         <p id="total-loses">Total Loses:</p></div>
+   
+    <div class="gemRow"></div>
+    <div class="total-score">Your total score is:</div>
+    <div class="score-display"></div>
 
     
     
-    <script type="text/javascript">
-        // $(document).ready(function () {
-            var crystal = {
-                // value: '',
-                gem: ["heart", "ruby", "diamond", "star"],
-                gemImage : '',
-                }
+<script type="text/javascript">
+ // $(document).ready(function () {
 
-            var counter = 0;
-            var totWins = 0;
-            var totLoses = 0;
-            // var gemArr = ["#heart", "#ruby", "#diamond", "#star"]
+    var totWins = 0;
+    var totLoses = 0;
+    var crystal = {
+        gemImage: ["/assets/images/topaz.jpg", "/assets/images/goldGem.jpg", "/assets/images/diamond.png", "/assets/images/emeraldGem.jpg"],            
+        }
+    var counter = 0;
+    var winScore = 0;
 
-            var winScore = randomIntFromInterval(19, 120);
-            var gemFirstVal = $("#diamond").attr("value");
+    initialize(winScore);
 
-            console.log({
-                winScore: winScore,
-                gemFirstVal: gemFirstVal
-                 });
+    console.log({
+        winScore: winScore
+    });
 
-            $("#placeWinScoreHere").text(winScore);
+          
+          // Create a for loop to create crystals and asssign random value between 1 -12
+      for (var i = 0; i < (crystal.gemImage).length; i++) {
+        var randGemVal = randomIntFromInterval(1, 12);
 
-            // assign value to Gems();
-            // for (var x=0; x < ((crystal.gem).length); x++) {
-            //     currentGemVal = $(crystal.gem[x]).attr("value");
-            //     console.log({
-            //         currentGemVal: currentGemVal                    
-            //     })
-            // }
-            assignGemValue(crystal);
-                 
-            // listen for Crystal click, once clicked calculate total
-            $(".number").on("click", function() {
-                counter = counter + 5;
-                // parseInt(crystal.value)
+          // For each iteration, we will create an imageCrystal
+        var imageCrystal = $("<img>");
+        imageCrystal.addClass("crystal-image");
+  
+           // Each imageCrystal will be given a src link to the crystal image
+        imageCrystal.attr("src", crystal.gemImage[i]);
+  
+           // Each imageCrystal will be given a data attribute called data-crystalValue which is a random number between 1 -12.
+        imageCrystal.attr("data-crystalvalue", randGemVal);
+  
+           // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+        $(".gemRow").append(imageCrystal);
+      };
+
+              // This time, our click event applies to every single crystal on the page. Not just one.
+       $(".crystal-image").on("click", function () {
+
+            // Determining the crystal's value requires us to extract the value from the data attribute.
+            // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
+            // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
+           
+         var crystalValue = ($(this).attr("data-crystalvalue"));
+
+          // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+         var crystalVal = parseInt(crystalValue);
+         counter += crystalVal;
+           
+         
+         console.log({
+         counter: counter,
+         crystalVal: crystalVal,
+         crystalValue: crystalValue,
+         winScore: winScore
             });
+
             
-                console.log ({
-                       counter: counter 
-                });   
+         $(".score-display").text(counter);
+                    
+              if (counter === winScore) {
+                alert("You win!");
+                totWins = totWins +1;
 
-            // $("#heart").on("click", function () {
-            //     //get value of gem and add to counter
-            //     var gemValue = ($(this).attr("data-gemValue"));
-            //     gemValue = parseInt(gemValue);
-            //     // var divText = $("<div>");
-            //     //     divText.text("55");
-            //     // $("#heart").text(divText);
-            //     // We then add the crystalValue to the user's "counter" which is a global variable.
-            //     // Every click, from every crystal adds to the global counter.
-            //     counter += gemValue;
-            //     console.log({
-            //     gemValue: gemValue,
-            //     counter: counter
-                //  });
+                        console.log ({
+                            totWins: totWins                 
+                             });
 
-            // })
-            // $("#ruby").on("click", function () {
-            //     //get value of gem and add to counter
-            //     var gemValue = ($(this).attr("data-gemValue"));
-            //     gemValue = parseInt(gemValue);
-            //     // We then add the crystalValue to the user's "counter" which is a global variable.
-            //     // Every click, from every crystal adds to the global counter.
-            //     counter += gemValue;
-            //     console.log({
-            //     gemValue: gemValue,
-            //     counter: counter
-            //      });
+                    $("#total-wins").append(totWins);
+                initialize();
+                 }
 
-            // })   
-            
-            // $("#diamond").on("click", function () {
-            //     //get value of gem and add to counter
-            //     var gemValue = ($(this).attr("data-gemValue"));
-            //     gemValue = parseInt(gemValue);
-            //     // We then add the crystalValue to the user's "counter" which is a global variable.
-            //     // Every click, from every crystal adds to the global counter.
-            //     counter += gemValue;
-            //     console.log({
-            //     gemValue: gemValue,
-            //     counter: counter
-            //      });
+              else if (counter >= winScore) {
+                alert("You lose!!");
+                totLoses = totLoses + 1;
 
-            // })  
-            
-            // $("#star").on("click", function () {
-            //     //get value of gem and add to counter
-            //     var gemValue = ($(this).attr("data-gemValue"));
-            //     gemValue = parseInt(gemValue);
-            //     // We then add the crystalValue to the user's "counter" which is a global variable.
-            //     // Every click, from every crystal adds to the global counter.
-            //     counter += gemValue;
-            //     console.log({
-            //     gemValue: gemValue,
-            //     counter: counter
-            //      });
+                         console.log ({
+                             totLoses: totLoses
+                              });
 
-            // })
-
-            // var targetDiv = $("blueBtn").create("<div>");
-
-            // $(blueBtn).append(targetDiv);
-            //   $("#blueBtn").on("click", function () {
-
-
-            //   });
-
-      
+                 $("#total-loses").append(totLoses);
+                initialize();
+                        }
+            }); 
+                    
 
     </script>
     </body>
-    
     </html>
-
-
