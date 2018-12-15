@@ -13,27 +13,31 @@
         <h1 class="gameName">Crystal Collector</h1>
     </div>
     <div class="intro">
-        <h3>These are the rules. <br> Click the Crystals until you reach the total without going over.
+        <h3>You will be given a random number at the start of the game. <br> <br>There are four crystals below.
+            By clicking on a crystal you will add a specific amount of points to your total score.
+            <br><br>You win the game by matching your total score to random number, you lose the game if your total
+            score goes above the random number. <br<br> The value of each crystal is hidden from you until you click on it.
+            <br><br> Each time when the game starts, the game will change the values of each crystal.<br><br>
         </h3>
-    </div>
+    
 
     <div id="placeWinScoreHere"> </div> 
         <div class="totals"><p id="total-wins">Total Wins:</p>
          <p id="total-loses">Total Loses:</p></div>
-   
+        
     <div class="gemRow"></div>
     <div class="total-score">Your total score is:</div>
     <div class="score-display"></div>
 
-    
+</div>
     
 <script type="text/javascript">
- // $(document).ready(function () {
+//  $(document).ready(function () {}
 
     var totWins = 0;
     var totLoses = 0;
     var crystal = {
-        gemImage: ["/assets/images/topaz.jpg", "/assets/images/goldGem.jpg", "/assets/images/diamond.png", "/assets/images/emeraldGem.jpg"],            
+        gemImage: ["assets/images/topaz.jpg", "assets/images/goldGem.jpg", "assets/images/diamond.png", "assets/images/emeraldGem.jpg"],            
         }
     var counter = 0;
     var winScore = 0;
@@ -112,7 +116,7 @@
                         }
             }); 
                     
-
+    
     </script>
     </body>
     </html>
