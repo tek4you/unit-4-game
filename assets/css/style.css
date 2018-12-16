@@ -17,7 +17,7 @@ body {
 
 #placeWinScoreHere {
     display: inline-block;
-    background: green;
+    background: rgb(131, 226, 131);
     padding-left: 10px;
     padding-top: 10px;
     width: 100px;
@@ -32,21 +32,26 @@ body {
     font-size: 18 px;
     color: white;
     width: 320px;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background: orange;
 }
 
 .intro {
     display: block;
     font-size: 16px;
-    background: pink;
+    color: green;
+    background: rgb(241, 177, 134);
     width: 600px;
     height: 300px;
     margin-top: 10px;
 }
 
 .winScore {
-    display: inline-block;
-    background-color: green;
+    /* display: inline-block; */
+    float: left;
+    background-color: rgb(53, 180, 197);
     color: white;
     font-size: 100px;
     width: 150px;
@@ -55,35 +60,35 @@ body {
 
 .totals {
     display: inline-block;
-    background-color: green;
+    /* float: left; */
+    background-color: rgb(12, 212, 238);
     color: white;
     font-size: 25px;
     width: 200px;
     margin-top: 10px;
 }
 
-#total-loses {
-    display: inline-block;
+ #total-loses {
+    /* display: inline-block;  */
     float: left;
-    background-color: green;
-    color: black;
-    font-size: 20px;
-    width: 200px;
-    margin-top: 10px;
-    
-}
-#total-wins {
-    display: inline-block;
-    float: left;
-    background-color: green;
     color: black;
     font-size: 20px;
     width: 200px;
     margin-top: 10px;  
-}
+} 
+#total-wins {
+    /* display: inline-block;  */
+    float: left;
+    color: black;
+    font-size: 20px;
+    width: 200px;
+    margin-top: 10px;  
+} 
     
 .gemRow {
-
+    clear: left;
+    /* display: inline-block; */
+    float: left;
     width: 500px;
     height: 150px;
     background-color: white;
@@ -91,7 +96,7 @@ body {
 
 .score-display {
     display: block;
-    background-color: green;
+    background-color:  rgb(25, 178, 189);
     color: white;
     font-size: 100px;
     width: 240px;
@@ -100,11 +105,9 @@ body {
 
 .total-score {
     display: block;
-    background-color: green;
+    background-color: rgb(25, 178, 189);
     color: white;
     font-size: 25px;
     width: 240px;
     margin-top: 10px;
-
-
 }
